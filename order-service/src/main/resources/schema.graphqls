@@ -1,0 +1,22 @@
+type Inventory {
+    skuCode: String
+    inStock: Boolean
+}
+
+type Query {
+    checkInventory(skuCodes: [String]): [Inventory]
+}
+
+type Mutation {
+    placeOrder(orderRequest: OrderRequest): String
+}
+
+input OrderRequest {
+    orderLineItems: [OrderLineItemsDto]
+}
+
+input OrderLineItemsDto {
+    skuCode: String
+    quantity: Int
+    price: Double
+}
